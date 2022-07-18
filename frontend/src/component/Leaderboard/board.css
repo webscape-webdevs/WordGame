@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*>* {
+    font-family: "Poppins", cursive;
+    margin: 0;
+}
+
+:root {
+    --color-dark: #2C3131;
+    --color-light: #F3F3F2;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.board {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 800px;
+}
+
+.leaderboard-title {
+    margin: 0;
+    margin-top: 1em;
+    background: rgb(90, 141, 90);
+}
+
+.MuiDataGrid-root .MuiDataGrid-cell--textRight.MuiDataGrid-cell--withRenderer,
+.MuiDataGrid-root .MuiDataGrid-cell--textRight.MuiDataGrid-cell--editing {
+    justify-content: center !important;
+}
+
+.MuiDataGrid-root.MuiDataGrid-autoHeight {
+    width: 800px !important;
+}
+
+.MuiDataGrid-columnHeaderTitle {
+    white-space: pre-wrap !important;
+    text-overflow: none !important;
+}
+
+.MuiDataGrid-root .MuiDataGrid-cell--textLeft {
+    text-align: center !important;
+}
+
+.MuiAvatar-root {
+    margin-left: 20px !important;
+    margin-right: 10px !important;
+}
+
+.leaderboard-data {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+
+.leaderboard-data-table {
+    background-color: white;
+}
+
+.leaderboard-data-table div {
+    font: 300 1vmax "Roboto";
+    color: rgba(0, 0, 0, 0.678);
+    border: none;
+}
+
+.leaderboard-data-table a {
+    color: rgba(0, 0, 0, 0.527);
+    transition: all 0.5s;
+}
+
+.leaderboard-data-table a:hover {
+    color: #3cb0fd;
+}
+
+.MuiDataGrid-columnHeader {
+    background-color: #3498db;
+    padding: 1vmax !important;
+}
+
+.MuiDataGrid-columnHeader div {
+    color: rgb(255, 255, 255);
+    font: 200 1.1vmax "Roboto" !important;
+    justify-content: center;
+}
+
+.MuiDataGrid-iconSeparator {
+    display: none !important;
+}
+
+@media screen and (max-width: 600px) {
+    .leaderboard-data {
+        padding: 0;
+        height: 93vh;
+    }
+
+
+    #myOrdersHeading {
+        font: 400 2.2vmax "Roboto";
+        padding: 4vw;
+    }
+
+    .leaderboard-data-table div {
+        font: 300 4vw "Roboto";
+    }
+
+    .MuiDataGrid-columnHeader {
+        padding: 20px !important;
+    }
+
+    .MuiDataGrid-columnHeader div {
+        font: 500 5vw "Roboto" !important;
+    }
+}
+
+.leaderboard-data-table {
+    width: 500px;
+}
