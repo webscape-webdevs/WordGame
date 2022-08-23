@@ -1,8 +1,20 @@
 .GameBoard {
-  width: 60vw;
-  margin: 5rem auto;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 90vh;
+  /* margin: 5rem auto; */
   font-family: monospace;
   text-transform: uppercase;
+  align-items: center;
+  justify-content: center;
+}
+
+.wordList-div {
+  display: flex;
+  width: 65vw;
+  justify-content: space-between;
+  background-color: rgba(161, 155, 155, 0.25);
 }
 
 

@@ -12,11 +12,13 @@ const router = express.Router();
 
 // Register a User
 router.post("/register", catchAsyncErrors(async (req, res, next) => {
+
   const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
     folder: "profilepic",
     width: 150,
     crop: "scale",
   });
+
   const { name, email, password } = req.body;
 
   const user = await User.create({

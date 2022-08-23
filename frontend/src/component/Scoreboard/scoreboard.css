@@ -1,8 +1,8 @@
 .ScoreBoard {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-around;
   margin: 2rem 0;
+  width: 60vw;
 }
 
 .ScoreBox {
@@ -15,17 +15,17 @@
   align-items: center;
   border-radius: 25px;
 
-
 }
+
 .label {
   font-size: 1rem;
 }
 
 .MultiplierBox {
   background-color: lightskyblue;
-width: 12rem;
-height: 12rem;
-border-radius: 50%;
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
   font-size: 2rem;
   display: grid;
   place-items: center;

@@ -14,13 +14,20 @@ export default function Game() {
     const [isLoggingKeys, setIsLoggingKeys] = useState(false);
 
     const {
-        wordStack,
-        stackWordIndex,
+        wordStack1,
+        wordStack2,
+        wordStack3,
+        wordStack4,
+        wordStack5,
+        stackWordIndex1,
+        stackWordIndex2,
+        stackWordIndex3,
+        stackWordIndex4,
+        stackWordIndex5,
         startTimer,
         isGameEnded,
         setIsGameEnded,
         checkForCharMatch,
-        nextChar,
         score,
         delay,
         isMistype,
@@ -64,9 +71,17 @@ export default function Game() {
             <div className="GameBoard">
                 <Reload />
                 <Scoreboard multiplier={multiplier} score={score} delay={delay} />
-                <WordsList stack={wordStack} currentIndex={stackWordIndex} />
+
+                <div className="wordList-div">
+                    <WordsList stack={wordStack1} currentIndex={stackWordIndex1} />
+                    <WordsList stack={wordStack2} currentIndex={stackWordIndex2} />
+                    <WordsList stack={wordStack3} currentIndex={stackWordIndex3} />
+                    <WordsList stack={wordStack4} currentIndex={stackWordIndex4} />
+                    <WordsList stack={wordStack5} currentIndex={stackWordIndex5} />
+                </div>
+
                 <Keyboard
-                    nextChar={nextChar}
+
                     pressedChar={pressedChar}
                     isMistype={isMistype}
                 />
