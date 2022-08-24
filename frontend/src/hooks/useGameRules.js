@@ -2,15 +2,11 @@ import { useEffect, useRef, useState } from "react";
 
 const randomWords = require("random-words");
 
-const wordBank1 = randomWords({ exactly: 200 });
-
-const wordBank2 = randomWords({ exactly: 200 });
-
-const wordBank3 = randomWords({ exactly: 200 });
-
-const wordBank4 = randomWords({ exactly: 200 });
-
-const wordBank5 = randomWords({ exactly: 200 });
+const wordBank1 = randomWords({ exactly: 30 });
+const wordBank2 = randomWords({ exactly: 30 });
+const wordBank3 = randomWords({ exactly: 30 });
+const wordBank4 = randomWords({ exactly: 30 });
+const wordBank5 = randomWords({ exactly: 30 });
 
 export default function useGameRules() {
   const [wordStack1, setWordStack1] = useState([]);
@@ -108,10 +104,13 @@ export default function useGameRules() {
   }
 
 
+  //-----------------------Timer----------------------------//
+
+
   function startTimer() {
     timer.current = setInterval(() => {
 
-      if (noWordsAdded1.current - noWordsRemoved1.current < 10) {
+      if (noWordsAdded1.current - noWordsRemoved1.current < 20) {
         let j = 1;
         addWordToStack(j);
         if (delay.current > 1100) {
@@ -123,9 +122,9 @@ export default function useGameRules() {
         endGame();
       }
 
-      //---------------------------------------------------------------
+      //----------------------------------------------------
 
-      if (noWordsAdded2.current - noWordsRemoved2.current < 10) {
+      if (noWordsAdded2.current - noWordsRemoved2.current < 20) {
         let j = 2;
         addWordToStack(j);
         if (delay.current > 1100) {
@@ -137,9 +136,9 @@ export default function useGameRules() {
         endGame();
       }
 
-      //---------------------------------------------------------------
+      //----------------------------------------------------
 
-      if (noWordsAdded3.current - noWordsRemoved3.current < 10) {
+      if (noWordsAdded3.current - noWordsRemoved3.current < 20) {
         let j = 3;
         addWordToStack(j);
         if (delay.current > 1100) {
@@ -151,9 +150,9 @@ export default function useGameRules() {
         endGame();
       }
 
-      //---------------------------------------------------------------
+      //----------------------------------------------------
 
-      if (noWordsAdded4.current - noWordsRemoved4.current < 10) {
+      if (noWordsAdded4.current - noWordsRemoved4.current < 20) {
         let j = 4;
         addWordToStack(j);
         if (delay.current > 1100) {
@@ -165,9 +164,9 @@ export default function useGameRules() {
         endGame();
       }
 
-      //---------------------------------------------------------------
+      //----------------------------------------------------
 
-      if (noWordsAdded5.current - noWordsRemoved5.current < 10) {
+      if (noWordsAdded5.current - noWordsRemoved5.current < 20) {
         let j = 5;
         addWordToStack(j);
         if (delay.current > 1100) {
@@ -179,12 +178,14 @@ export default function useGameRules() {
         endGame();
       }
 
-      //---------------------------------------------------------------
-
 
 
     }, delay.current);
   }
+
+
+
+  //-----------------------Remove Words----------------------------//
 
 
 
@@ -237,6 +238,12 @@ export default function useGameRules() {
 
   }
 
+
+
+  //-----------------------ADD Words----------------------------//
+
+
+
   function addWordToStack(j) {
 
     if (j === 1) {
@@ -287,6 +294,11 @@ export default function useGameRules() {
   }
 
 
+
+  //-----------------------Check Character Match----------------------------//
+
+
+
   function checkForCharMatch(char) {
     let k = 0;
 
@@ -328,6 +340,10 @@ export default function useGameRules() {
   }
 
 
+
+  //-----------------------Update Word Time----------------------------//
+
+
   function updateWordTime() {
     setWordStartTime((wordStartTime) => {
       if (wordStartTime) {
@@ -338,6 +354,12 @@ export default function useGameRules() {
       return Date.now();
     });
   }
+
+
+
+  //-----------------------Move to Next Character----------------------------//
+
+
 
   function moveToNextChar(k) {
     let r = 0;

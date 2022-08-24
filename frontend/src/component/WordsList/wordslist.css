@@ -1,7 +1,6 @@
 .WordsList {
-
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   justify-content: start;
   align-items: center;
   height: 4rem;
@@ -17,7 +16,7 @@
 .Word {
   border: 1px solid black;
   margin: 0 1rem;
-  margin-right: 15rem;
+  margin-bottom: 3rem;
   padding: 0.5rem;
 }
 
