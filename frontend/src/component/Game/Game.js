@@ -7,8 +7,41 @@ import WordsList from "../WordsList/WordsList";
 import useGameRules from "../../hooks/useGameRules";
 import "./game.css";
 import { Reload } from '../layout/Header/Navbar'
+import keySound from "../../sounds/keyPress.mp3";
+import wordComplete from "../../sounds/Computer-beep-beeping-1-www.FesliyanStudios.com_01.mp3";
+
+const KeyPressAudio = () => {
+    return (
+        <audio
+            id="keySound"
+            src={keySound}
+        />
+
+    )
+
+};
+
+const WordCompleteAudio = () => {
+    return (
+        <audio
+            id="wordComplete"
+            src={wordComplete}
+        />
+
+    )
+
+};
 
 
+const playKeyPressAudio = () => {
+    const keyAudio = new Audio(document.getElementById("keySound").src)
+    keyAudio.play();
+}
+
+export const playWordCompleteAudio = () => {
+    const completeAudio = new Audio(document.getElementById("wordComplete").src)
+    completeAudio.play();
+}
 
 export default function Game() {
     const [isLoggingKeys, setIsLoggingKeys] = useState(false);
@@ -37,7 +70,7 @@ export default function Game() {
     } = useGameRules();
 
     function end() {
-        setIsGameEnded(true)
+        setIsGameEnded(true);
     }
 
     function startGame() {
@@ -55,16 +88,21 @@ export default function Game() {
 
         function handleKeyDown(e) {
             setPressedChar("");
+            playKeyPressAudio();
         }
+
         if (isLoggingKeys && !isGameEnded) {
             document.addEventListener("keyup", handleKeyUp);
             document.addEventListener("keydown", handleKeyDown);
         }
+
         return () => {
             document.removeEventListener("keyup", handleKeyUp);
             document.removeEventListener("keydown", handleKeyDown);
         };
+
     }, [isLoggingKeys, isGameEnded]);
+
 
     if (isLoggingKeys && !isGameEnded) {
         return (
@@ -80,19 +118,20 @@ export default function Game() {
                     <WordsList stack={wordStack5} currentIndex={stackWordIndex5} />
                 </div>
 
-                <Keyboard
+                <Keyboard pressedChar={pressedChar} isMistype={isMistype} />
 
-                    pressedChar={pressedChar}
-                    isMistype={isMistype}
-                />
                 <button className="end-button" onClick={end}>End</button>
+
+                <KeyPressAudio />
+
+                <WordCompleteAudio />
+
             </div>
         );
+
     } else if (isGameEnded) {
         return (
-
             <EndGame finalScore={score} />
-
         );
 
     } else {

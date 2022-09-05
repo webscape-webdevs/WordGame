@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
+import { playWordCompleteAudio } from "../component/Game/Game";
+
 const randomWords = require("random-words");
 
 const wordBank1 = randomWords({ exactly: 30 });
@@ -234,7 +236,9 @@ export default function useGameRules() {
       noWordsRemoved5.current++;
       stackWordIndex5.current = 0;
       nextChar5.current = wordBank5[noWordsRemoved5.current][0];
+
     }
+    playWordCompleteAudio();
 
   }
 
